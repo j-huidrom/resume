@@ -1,21 +1,16 @@
-# huidrom.com — PHASE 03 BASELINE
+# huidrom.com — PHASE 03 BASELINE + NAME UPDATE
 
-This is the corrected Phase 3 baseline. It is intentionally visually distinct from Phases 1 and 2.
+This package keeps the deployed Phase 03 design and changes the top-left brand from
+"JH." to the full name "Jashyawanta Huidrom".
 
-## What you MUST see after deployment
+## What to verify after deployment
 
-1. Hero contains a visible **PHASE 03 · EXECUTIVE PROFILE** badge.
-2. Navigation contains: About / Experience / AI / India / Projects / Contact.
-3. A large **AI-NATIVE ENGINEERING** section appears with a light-blue background.
-4. A dedicated **BUILDING ENGINEERING IN INDIA** section appears with a large INDIA visual.
-5. A **BUILDER** section contains HUDI, SPORTIQ, Bhult and School Agent.
-6. A **HOW I LEAD** section appears after the projects.
-7. Footer explicitly says **PHASE 03**.
-8. The Experience section is redesigned on a dark-blue background.
+1. Top-left header says **Jashyawanta Huidrom** instead of JH.
+2. Hero still shows **PHASE 03 · EXECUTIVE PROFILE**.
+3. AI-NATIVE ENGINEERING section is present.
+4. BUILDING ENGINEERING IN INDIA section is present.
+5. BUILDER section contains HUDI, SPORTIQ, Bhult and School Agent.
+6. HOW I LEAD section is present.
+7. Footer still says PHASE 03.
 
-If these are not visible, the new package has NOT been deployed.
-
-## Deployment
-
-Run the existing `update-huidrom-site.bat` after downloading this ZIP.
-The package uses cache-busting query strings for Phase 3 CSS/JS.
+No other Phase 03 content is intentionally changed.
