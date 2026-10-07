@@ -1,28 +1,27 @@
-# huidrom.com — PHASE 03 SIMPLE ENGINEERING SYSTEM VISUAL
+# huidrom.com — PHASE 03 TREE SYSTEM VISUAL
 
-This package keeps the Phase 03 site and replaces the previous overlapping hero diagram
-with a simple professional hierarchy inspired by the supplied reference image.
-
-## New visual
+The engineering-system visual is now a true tree hierarchy based on the supplied reference:
 
 ENGINEERING OUTCOME
-        ↓
+        |
 ENGINEERING SYSTEM
-   ↙      ↓      ↘
-PEOPLE  PLATFORMS  AI-NATIVE
+        |
+  +-----+-----+
+  |     |     |
+PEOPLE PLATFORMS AI-NATIVE
 
-The visual uses clean boxes and connector lines, with no overlap.
+PEOPLE, PLATFORMS and AI-NATIVE are on the same horizontal level.
+Connector lines make the hierarchy explicit and no cards overlap.
 
 ## What to verify after deployment
 
 1. Top-left says **Jashyawanta Huidrom**.
 2. Hero shows **PHASE 03 · EXECUTIVE PROFILE**.
-3. Hero diagram has five clean boxes:
-   - ENGINEERING OUTCOME
-   - ENGINEERING SYSTEM
-   - PEOPLE
-   - PLATFORMS
-   - AI-NATIVE
+3. The hero diagram is a tree:
+   - ENGINEERING OUTCOME at the top
+   - ENGINEERING SYSTEM below it
+   - PEOPLE / PLATFORMS / AI-NATIVE on the same horizontal level
+   - clean connector lines
 4. No boxes overlap.
 5. AI-NATIVE ENGINEERING section is present.
 6. BUILDING ENGINEERING IN INDIA section is present.
