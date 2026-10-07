@@ -2,7 +2,5 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "huidrom-labs",
   "compatibility_date": "2026-08-14",
-  "assets": {
-    "directory": "./public"
-  }
+  "assets": { "directory": "./public" }
 }
