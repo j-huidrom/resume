@@ -1,5 +1,19 @@
-document.getElementById("year").textContent = new Date().getFullYear();
-const links=[...document.querySelectorAll(".nav a")];
-const sections=[...document.querySelectorAll("main section[id]")];
-const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;links.forEach(link=>link.classList.toggle("active",link.getAttribute("href")==="#"+entry.target.id));}),{rootMargin:"-35% 0px -55% 0px"});
-sections.forEach(section=>observer.observe(section));
+(() => {
+  const items = document.querySelectorAll(".reveal");
+
+  if (!("IntersectionObserver" in window)) {
+    items.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.14 });
+
+  items.forEach((item) => observer.observe(item));
+})();
