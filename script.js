@@ -1,19 +1,10 @@
-(() => {
-  const items = document.querySelectorAll(".reveal");
-
-  if (!("IntersectionObserver" in window)) {
-    items.forEach((item) => item.classList.add("is-visible"));
-    return;
-  }
-
-  const observer = new IntersectionObserver((entries, obs) => {
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        obs.unobserve(entry.target);
-      }
+      if (entry.isIntersecting) entry.target.classList.add("visible");
     });
-  }, { threshold: 0.14 });
+  }, { threshold: 0.12 });
 
-  items.forEach((item) => observer.observe(item));
-})();
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  document.getElementById("year").textContent = new Date().getFullYear();
+});
