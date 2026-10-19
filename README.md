@@ -1,27 +1,22 @@
-# huidrom.com — Phase 04: Editorial Executive Homepage
+# huidrom.com — Phase 05: Blue Portrait Refinement
 
-This package replaces the entire static website source. Keep the existing `update-huidrom-site.bat` workflow.
+This package replaces the complete static website source. Continue using the existing `update-huidrom-site.bat` workflow.
 
 ## What changed
-- Reframed the site as a personal, editorial executive homepage inspired by the approved reference: warm ivory, elegant serif headings, restrained gold accents and pale-blue visual details.
-- Reduced the hero portrait substantially on desktop and mobile so it feels secondary to the headline. The supplied portrait asset remains unchanged; its existing background-mask limitations may still be visible, but the smaller presentation makes it less dominant.
-- Made the primary hero invitation “Talk to Ask Hudi” and added a dedicated Ask Hudi preview section. The bot is explicitly marked as coming soon; no nonfunctional chat is presented as live.
-- Expanded experience highlights for ZS Associates / ZAIDYN and FIS / Worldpay, including ZIDM, platform capabilities and the stated scale of up to 50 engineers across five scrum teams.
-- Added a “What I love solving” section, AI point of view, building engineering in India, projects and leadership principles.
-- Added responsive mobile navigation, keyboard-visible native links, reduced-motion support, metadata and updated cache-busting asset versions.
-- Kept this as a static site with no framework or build step.
+- Replaced the previous rough transparent cutout with the approved blue-gradient portrait treatment, matching the pale-blue background tone across the upper-left and upper-right of the portrait image.
+- Presented the portrait inside a smaller, rounded rectangular frame with a restrained shadow; the headline remains the main focal point.
+- Removed the extra halo/ring decorations and caption that competed with the portrait and could look cluttered.
+- Reduced the portrait further on mobile and updated the stylesheet cache version.
+- Kept the rest of the Phase 04 page, navigation, experience sections, projects and Ask Hudi preview intact. Ask Hudi remains a preview only; no live AI backend is connected.
 
 ## What to verify after deployment
-1. The hero uses the warm ivory / pale-blue editorial style and shows your portrait on the right on desktop.
-2. The portrait is intentionally smaller than in Phase 04’s first deployment. Check that it no longer dominates the hero; note that the existing cutout may still show remnants of the original photo background.
-3. The hero headline reads “Building engineering organizations for the AI era.”
-4. “Talk to Ask Hudi” takes you to the Ask Hudi preview section, which says the chatbot is coming soon.
-5. Navigation links scroll to About, Experience, What I Solve, Projects and Ask Hudi.
-6. Experience includes the ZIDM revamp and ZAIDYN platform scope, plus FIS / Worldpay scale (up to 50 engineers and five scrum teams).
-7. “What I love solving”, AI, India, projects and leadership sections appear below the hero.
-8. On mobile, the menu opens and closes, cards stack cleanly, and there is no horizontal scrolling.
-9. Contact opens an email to `hellohudi@gmail.com`; GitHub link opens `j-huidrom`.
-10. Ask Hudi is clearly a preview only; no live AI backend has been wired yet.
+1. The hero portrait has a consistent light-blue gradient background, including the top-left portion; no remnants of the old outdoor photo background should be visible.
+2. The portrait is smaller and contained in a rounded frame on the right; it should not compete with the headline.
+3. The portrait note does not cover the face.
+4. The hero headline and “Talk to Ask Hudi” invitation remain visible.
+5. Experience, What I Love Solving, AI, India, Projects, leadership and contact sections remain unchanged.
+6. On mobile, the portrait is smaller, sits below the hero copy, and there is no horizontal scrolling.
+7. Ask Hudi is still clearly marked as coming soon, not a working chatbot.
 
 ## Deployment
-Extract/replace via the existing `update-huidrom-site.bat`. It should select this package when named `huidrom-phase-4.zip`, validate the phase, commit and push to `master`, then Cloudflare Pages will deploy from GitHub.
+Download as `huidrom-phase-5.zip`, place it in Downloads, and run `update-huidrom-site.bat`. The script chooses the highest-numbered `huidrom-phase-*.zip`, pushes the update to GitHub, and Cloudflare should deploy automatically.
