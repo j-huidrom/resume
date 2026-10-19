@@ -1,30 +1,27 @@
-# huidrom.com — PHASE 03 TREE SYSTEM VISUAL
+# huidrom.com — Phase 04: Editorial Executive Homepage
 
-The engineering-system visual is now a true tree hierarchy based on the supplied reference:
+This package replaces the entire static website source. Keep the existing `update-huidrom-site.bat` workflow.
 
-ENGINEERING OUTCOME
-        |
-ENGINEERING SYSTEM
-        |
-  +-----+-----+
-  |     |     |
-PEOPLE PLATFORMS AI-NATIVE
-
-PEOPLE, PLATFORMS and AI-NATIVE are on the same horizontal level.
-Connector lines make the hierarchy explicit and no cards overlap.
+## What changed
+- Reframed the site as a personal, editorial executive homepage inspired by the approved reference: warm ivory, elegant serif headings, restrained gold accents and pale-blue visual details.
+- Added the supplied portrait as a transparent cutout. The original photo pixels are retained; only the background transparency mask is applied, with no facial retouching.
+- Made the primary hero invitation “Talk to Ask Hudi” and added a dedicated Ask Hudi preview section. The bot is explicitly marked as coming soon; no nonfunctional chat is presented as live.
+- Expanded experience highlights for ZS Associates / ZAIDYN and FIS / Worldpay, including ZIDM, platform capabilities and the stated scale of up to 50 engineers across five scrum teams.
+- Added a “What I love solving” section, AI point of view, building engineering in India, projects and leadership principles.
+- Added responsive mobile navigation, keyboard-visible native links, reduced-motion support, metadata and updated cache-busting asset versions.
+- Kept this as a static site with no framework or build step.
 
 ## What to verify after deployment
+1. The hero uses the warm ivory / pale-blue editorial style and shows your portrait on the right on desktop.
+2. The portrait retains your original face; the cutout changes only the background transparency.
+3. The hero headline reads “Building engineering organizations for the AI era.”
+4. “Talk to Ask Hudi” takes you to the Ask Hudi preview section, which says the chatbot is coming soon.
+5. Navigation links scroll to About, Experience, What I Solve, Projects and Ask Hudi.
+6. Experience includes the ZIDM revamp and ZAIDYN platform scope, plus FIS / Worldpay scale (up to 50 engineers and five scrum teams).
+7. “What I love solving”, AI, India, projects and leadership sections appear below the hero.
+8. On mobile, the menu opens and closes, cards stack cleanly, and there is no horizontal scrolling.
+9. Contact opens an email to `hellohudi@gmail.com`; GitHub link opens `j-huidrom`.
+10. Ask Hudi is clearly a preview only; no live AI backend has been wired yet.
 
-1. Top-left says **Jashyawanta Huidrom**.
-2. Hero shows **PHASE 03 · EXECUTIVE PROFILE**.
-3. The hero diagram is a tree:
-   - ENGINEERING OUTCOME at the top
-   - ENGINEERING SYSTEM below it
-   - PEOPLE / PLATFORMS / AI-NATIVE on the same horizontal level
-   - clean connector lines
-4. No boxes overlap.
-5. AI-NATIVE ENGINEERING section is present.
-6. BUILDING ENGINEERING IN INDIA section is present.
-7. BUILDER section contains HUDI, SPORTIQ, Bhult and School Agent.
-8. HOW I LEAD section is present.
-9. Footer says PHASE 03.
+## Deployment
+Extract/replace via the existing `update-huidrom-site.bat`. It should select this package when named `huidrom-phase-4.zip`, validate the phase, commit and push to `master`, then Cloudflare Pages will deploy from GitHub.
