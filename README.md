@@ -4,7 +4,7 @@ This package replaces the entire static website source. Keep the existing `updat
 
 ## What changed
 - Reframed the site as a personal, editorial executive homepage inspired by the approved reference: warm ivory, elegant serif headings, restrained gold accents and pale-blue visual details.
-- Added the supplied portrait as a transparent cutout. The original photo pixels are retained; only the background transparency mask is applied, with no facial retouching.
+- Reduced the hero portrait substantially on desktop and mobile so it feels secondary to the headline. The supplied portrait asset remains unchanged; its existing background-mask limitations may still be visible, but the smaller presentation makes it less dominant.
 - Made the primary hero invitation “Talk to Ask Hudi” and added a dedicated Ask Hudi preview section. The bot is explicitly marked as coming soon; no nonfunctional chat is presented as live.
 - Expanded experience highlights for ZS Associates / ZAIDYN and FIS / Worldpay, including ZIDM, platform capabilities and the stated scale of up to 50 engineers across five scrum teams.
 - Added a “What I love solving” section, AI point of view, building engineering in India, projects and leadership principles.
@@ -13,7 +13,7 @@ This package replaces the entire static website source. Keep the existing `updat
 
 ## What to verify after deployment
 1. The hero uses the warm ivory / pale-blue editorial style and shows your portrait on the right on desktop.
-2. The portrait retains your original face; the cutout changes only the background transparency.
+2. The portrait is intentionally smaller than in Phase 04’s first deployment. Check that it no longer dominates the hero; note that the existing cutout may still show remnants of the original photo background.
 3. The hero headline reads “Building engineering organizations for the AI era.”
 4. “Talk to Ask Hudi” takes you to the Ask Hudi preview section, which says the chatbot is coming soon.
 5. Navigation links scroll to About, Experience, What I Solve, Projects and Ask Hudi.
