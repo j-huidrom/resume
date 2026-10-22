@@ -1,0 +1,467 @@
+{
+  "schemaVersion": "1.0",
+  "title": "Ask Hudi public professional knowledge base",
+  "description": "Public-safe professional facts and project summaries for Ask Hudi. This file is intentionally served as a public asset; do not add private, sensitive, confidential, or unverified information.",
+  "updatedAt": "2026-10-19",
+  "documents": [
+    {
+      "id": "profile-overview",
+      "title": "Professional profile",
+      "type": "profile",
+      "confidence": "user-shared profile facts",
+      "tags": [
+        "Jashyawanta Huidrom",
+        "Hudi",
+        "engineering leader",
+        "engineering management",
+        "career",
+        "India",
+        "Pune"
+      ],
+      "summary": "Engineering leader and hands-on builder with 20+ years in software engineering, technical architecture, delivery and people leadership.",
+      "content": "Jashyawanta Huidrom is an engineering leader and builder with more than 20 years of experience across software engineering, solution architecture, technical leadership and engineering management. His professional interests include building engineering organizations, platform engineering, AI-native engineering, execution at scale, and building strong engineering teams in India for products and global companies. His current professional positioning is Engineering Leader, Builder and AI. He has managed up to 50 engineers across five scrum teams in a scaled delivery environment. Do not infer business outcomes or exact impact metrics that are not documented in this knowledge base.",
+      "publicClaims": [
+        "20+ years across software engineering and leadership",
+        "Managed up to 50 engineers across five scrum teams"
+      ],
+      "links": [
+        {
+          "title": "About",
+          "href": "/#about"
+        },
+        {
+          "title": "Experience",
+          "href": "/#experience"
+        }
+      ]
+    },
+    {
+      "id": "career-timeline",
+      "title": "Career timeline and education",
+      "type": "experience",
+      "confidence": "user-shared profile history; verify exact titles before adding detailed public claims",
+      "tags": [
+        "career timeline",
+        "ZS Associates",
+        "SunGard",
+        "FIS",
+        "Worldpay",
+        "Nihilent",
+        "Tech Mahindra",
+        "Mahindra Satyam",
+        "education",
+        "Pondicherry University"
+      ],
+      "summary": "Career history from software programming and design leadership through architecture and engineering management.",
+      "content": "Career timeline shared by Jashyawanta: ZS Associates, Software Engineering & Technology Manager, December 2021–present. SunGard/FIS, with roles listed as Associate Director–Development, Architect, and Senior Specialist–Solution Architect, March 2013–December 2021. Nihilent, Design Lead, January 2010–March 2013. Tech Mahindra/Mahindra Satyam, Senior Software Programmer, September 2006–December 2009. Education: B.Tech in EEC from Pondicherry University, 2002–2006. This timeline is a user-shared profile baseline; if a visitor asks for detailed responsibilities or achievements not documented elsewhere, say the portfolio does not yet contain those details.",
+      "publicClaims": [
+        "ZS Associates role dates: December 2021–present",
+        "SunGard/FIS role dates: March 2013–December 2021",
+        "Nihilent role dates: January 2010–March 2013",
+        "Tech Mahindra/Mahindra Satyam role dates: September 2006–December 2009",
+        "B.Tech EEC, Pondicherry University, 2002–2006"
+      ],
+      "links": [
+        {
+          "title": "Experience",
+          "href": "/#experience"
+        }
+      ]
+    },
+    {
+      "id": "zaidyn-platform-leadership",
+      "title": "ZAIDYN platform engineering",
+      "type": "experience",
+      "confidence": "user-shared current-role context; public-safe summary only",
+      "tags": [
+        "ZS Associates",
+        "ZAIDYN",
+        "platform engineering",
+        "identity management",
+        "data fabric",
+        "Agentic AI SDK",
+        "quality engineering",
+        "release engineering",
+        "team leadership"
+      ],
+      "summary": "Engineering management across platform capabilities including identity, data fabric, agentic AI, quality and release engineering.",
+      "content": "Jashyawanta works as an Engineering Manager at ZS Associates on the ZAIDYN platform. The capabilities discussed in his role include ZAIDYN Identity Manager (ZIDM), Data Fabric, Agentic AI SDK, release engineering and quality engineering. Team sizes previously shared for the areas he manages or supports were ZIDM 10, Data Fabric 10, and Agentic AI SDK 15; these are area/team figures and must not be summed or represented as a single direct-report count without confirmation. His work spans engineering execution and platform capabilities. Avoid sharing internal architecture, customer information, security design, or non-public company details.",
+      "publicClaims": [
+        "Engineering Manager at ZS Associates working on ZAIDYN",
+        "Platform areas include identity management, data fabric, agentic AI, release engineering and quality engineering"
+      ],
+      "links": [
+        {
+          "title": "Experience",
+          "href": "/#experience"
+        },
+        {
+          "title": "AI engineering perspective",
+          "href": "/#ai"
+        }
+      ]
+    },
+    {
+      "id": "zidm-revamp",
+      "title": "ZAIDYN Identity Manager (ZIDM) revamp",
+      "type": "case-study",
+      "confidence": "project topic confirmed; detailed outcomes and public disclosure boundaries not yet documented",
+      "tags": [
+        "ZIDM",
+        "identity management",
+        "Okta",
+        "identity provider",
+        "tenant provisioning",
+        "platform revamp",
+        "architecture",
+        "modernization"
+      ],
+      "summary": "A relevant identity-platform modernization story; detailed challenge, decisions, and measurable outcome still need to be curated.",
+      "content": "Jashyawanta has discussed managing the ZAIDYN Identity Manager (ZIDM) revamp involving an Okta identity provider and tenant provisioning. The existence and broad topic of this initiative are known. The public portfolio does not yet contain a fully verified case study covering the original problem, architecture decisions, his precise ownership, trade-offs, before/after measures, or business outcome. If asked, describe it only at this high level and explain that the detailed case study is still being documented. Do not invent a result, timeline improvement, migration detail, security design, or customer-specific information.",
+      "publicClaims": [
+        "ZIDM revamp involving an Okta identity provider and tenant provisioning"
+      ],
+      "links": [
+        {
+          "title": "Experience",
+          "href": "/#experience"
+        }
+      ]
+    },
+    {
+      "id": "fis-worldpay-scale",
+      "title": "FIS / Worldpay engineering leadership at scale",
+      "type": "experience",
+      "confidence": "user-shared career and scale facts; specific impact stories not yet documented",
+      "tags": [
+        "FIS",
+        "SunGard",
+        "Worldpay",
+        "engineering leadership",
+        "50 engineers",
+        "five scrum teams",
+        "fintech",
+        "mobile wallet",
+        "Java",
+        "J2EE",
+        "enterprise systems",
+        "delivery"
+      ],
+      "summary": "Engineering leadership in enterprise and fintech contexts, including responsibility for up to 50 engineers across five scrum teams.",
+      "content": "During his SunGard/FIS career, Jashyawanta held roles including Senior Specialist–Solution Architect, Architect and Associate Director–Development. He has described managing up to 50 engineers across five scrum teams in a FIS/Worldpay experience. His professional background includes enterprise systems, Java/J2EE, fintech and mobile-wallet contexts. His profile also mentions exposure across Pune, Cape Town and Dhaka. The public knowledge base does not yet establish detailed case-study outcomes, revenue impact, reliability metrics, or the precise scope of each role; do not invent them.",
+      "publicClaims": [
+        "Managed up to 50 engineers across five scrum teams",
+        "Career at SunGard/FIS from March 2013 to December 2021",
+        "Background includes enterprise software and fintech contexts"
+      ],
+      "links": [
+        {
+          "title": "Experience",
+          "href": "/#experience"
+        }
+      ]
+    },
+    {
+      "id": "recognition",
+      "title": "Professional recognition",
+      "type": "recognition",
+      "confidence": "awards listed in shared profile baseline; verify award names and dates before detailed publication",
+      "tags": [
+        "awards",
+        "recognition",
+        "Laureate Award",
+        "Star of the Quarter",
+        "Innovative Team of the Year",
+        "SunGard"
+      ],
+      "summary": "Several awards and recognitions were listed in the profile baseline.",
+      "content": "Awards listed in Jashyawanta's shared professional profile baseline include Q3 2017 Laureate Award, SunGard Q2 Laureate Team Award, Star of the Quarter, and Innovative Team of the Year. The exact award wording, dates, criteria and personal versus team attribution should be verified before making detailed claims. If asked, mention that these recognitions appear in the profile information and avoid inventing the reason for an award.",
+      "publicClaims": [
+        "Profile-listed professional awards include Laureate Award and team/quarterly recognitions"
+      ],
+      "links": [
+        {
+          "title": "Experience",
+          "href": "/#experience"
+        }
+      ]
+    },
+    {
+      "id": "leadership-principles",
+      "title": "Leadership philosophy",
+      "type": "leadership",
+      "confidence": "user-approved website positioning and repeatedly discussed professional principles",
+      "tags": [
+        "leadership",
+        "people",
+        "platforms",
+        "execution",
+        "ownership",
+        "engineering organization",
+        "operating model",
+        "quality",
+        "delivery"
+      ],
+      "summary": "Build people, build systems, and let good systems scale the people.",
+      "content": "Jashyawanta's current leadership framing is: Build people. Build systems. Then let the system scale the people. Core principles: people create the multiplier; grow leaders, clarify ownership, and give teams the conditions to do their best work; systems make good work repeatable; build shared foundations and clear practices that reduce friction instead of adding process for its own sake; technology should increase leverage; use platforms and AI to improve the work while keeping accountability with people. He is interested in translating ambiguity into a plan, scaling teams without adding chaos, making platforms create leverage, and making AI useful in engineering. Present these as leadership principles, not as measured results unless a specific case study supports them.",
+      "publicClaims": [
+        "Leadership philosophy: build people, build systems, then let the system scale the people"
+      ],
+      "links": [
+        {
+          "title": "How I lead",
+          "href": "/#top"
+        },
+        {
+          "title": "What I love solving",
+          "href": "/#problems"
+        }
+      ]
+    },
+    {
+      "id": "ai-native-engineering",
+      "title": "AI-native engineering point of view",
+      "type": "expertise",
+      "confidence": "professional point of view and interests shared by user; distinguish from proven production deployments",
+      "tags": [
+        "AI-native engineering",
+        "agentic AI",
+        "software development lifecycle",
+        "AI agents",
+        "developer productivity",
+        "quality engineering",
+        "release engineering",
+        "automation",
+        "PMO"
+      ],
+      "summary": "AI should improve the engineering system, not merely add another chatbot or feature.",
+      "content": "Jashyawanta is interested in AI-native engineering: developers, AI agents, platforms, quality and release processes working together with clear human ownership. Principles expressed on the website: make AI-assisted development part of the workflow; use agents where they can take meaningful, bounded work; keep quality, security and governance inside the loop; measure outcomes rather than activity or tool adoption. He has explored an AI-native PMO concept to automate status collection, dashboards and coordination. Treat this as an explored direction or proposal, not a deployed product or a proven productivity improvement. When answering general questions, label recommendations as general guidance and separate them from his documented personal experience.",
+      "publicClaims": [
+        "Professional interest in AI-native engineering and agentic AI",
+        "Explored automating PMO coordination using AI"
+      ],
+      "links": [
+        {
+          "title": "AI engineering",
+          "href": "/#ai"
+        }
+      ]
+    },
+    {
+      "id": "engineering-in-india",
+      "title": "Building engineering in India",
+      "type": "point-of-view",
+      "confidence": "website positioning and user-stated professional interests",
+      "tags": [
+        "India engineering",
+        "global teams",
+        "startup",
+        "US startup",
+        "engineering organization",
+        "leadership",
+        "remote collaboration"
+      ],
+      "summary": "Build strong engineering teams in India with ownership of outcomes, strong foundations, and global product context.",
+      "content": "Jashyawanta wants to help overseas CTOs, VPs of Engineering, directors and founders build or lead strong engineering organizations in India. His point of view: teams should own outcomes, not simply execute tickets; develop leaders; establish strong technical foundations; create operating models that support quality, clarity and continuous adaptation. This is a professional proposition and leadership point of view, not a claim that he has founded or scaled a new engineering organization in India for a specific external startup.",
+      "publicClaims": [
+        "Professional focus on engineering leadership and building strong engineering teams in India"
+      ],
+      "links": [
+        {
+          "title": "Building engineering in India",
+          "href": "/#ai"
+        },
+        {
+          "title": "Contact",
+          "href": "/#contact"
+        }
+      ]
+    },
+    {
+      "id": "hudi-project",
+      "title": "HUDI — personal AI assistant",
+      "type": "project",
+      "confidence": "project direction and prototype components shared by user; current production status not established",
+      "tags": [
+        "HUDI",
+        "DEVI",
+        "AI assistant",
+        "OpenAI API",
+        "FastAPI",
+        "Python",
+        "Alexa",
+        "voice interface",
+        "memory",
+        "engineering assistant",
+        "education"
+      ],
+      "summary": "A personal AI assistant project exploring voice, conversation, engineering-focused behavior and educational use cases.",
+      "content": "HUDI was previously called DEVI. It is a personal AI assistant project. Shared project direction includes an OpenAI reasoning engine, Alexa voice interface, conversation memory, engineering-focused personality, ECE tutoring, AI demonstrations and interview coaching. Prototype components discussed include Python, FastAPI, OpenAI API, Alexa endpoint handling, conversation state and telemetry/logging; code files mentioned include main.py, hudi.py, openai_service.py and prompt_builder.py, with a repository named devi-runtime. These are project components and intended capabilities; do not imply all features are complete or production-ready. The project should not be described as ChatGPT; HUDI is its own project identity.",
+      "publicClaims": [
+        "HUDI is a personal AI assistant project",
+        "Project exploration includes voice, conversation, engineering assistance and educational use cases"
+      ],
+      "links": [
+        {
+          "title": "Projects",
+          "href": "/#projects"
+        }
+      ]
+    },
+    {
+      "id": "sportiq-project",
+      "title": "SPORTIQ — sports analytics concept",
+      "type": "project",
+      "confidence": "concept and early exploration shared by user; production status not established",
+      "tags": [
+        "SPORTIQ",
+        "sports technology",
+        "football",
+        "wearable",
+        "sensors",
+        "analytics",
+        "IoT",
+        "drone",
+        "computer vision"
+      ],
+      "summary": "A sports-tech concept exploring wearable player data and football analytics for community sports.",
+      "content": "SPORTIQ is a sports analytics wearable concept. The idea discussed is a wearable attached to a football player's vest that sends player data to the cloud. Exploration has included possible sensors and the use of drones or camera-based aerial analytics to understand player movement in casual football communities. These are exploratory concepts; do not claim a finished device, validated analytics model, shipped hardware, or active customers.",
+      "publicClaims": [
+        "SPORTIQ is an exploratory sports-tech and football analytics concept"
+      ],
+      "links": [
+        {
+          "title": "Projects",
+          "href": "/#projects"
+        }
+      ]
+    },
+    {
+      "id": "school-agent-project",
+      "title": "School Agent — education AI exploration",
+      "type": "project",
+      "confidence": "MVP exploration discussed; deployed status not established",
+      "tags": [
+        "School Agent",
+        "AI education",
+        "learning",
+        "school workflows",
+        "OpenAI",
+        "student support"
+      ],
+      "summary": "An AI-enabled school and learning support concept explored as an early practical use case.",
+      "content": "School Agent is an early AI project/MVP exploration focused on school-related and learning support use cases. The user wanted to begin with use cases that did not require hardware or sensors. The exact feature set, implementation status, users and outcomes have not been fully documented. Do not describe it as a launched or production product unless updated evidence is added.",
+      "publicClaims": [
+        "School Agent is an early AI education/support exploration"
+      ],
+      "links": [
+        {
+          "title": "Projects",
+          "href": "/#projects"
+        }
+      ]
+    },
+    {
+      "id": "bhult-venture",
+      "title": "Bhult — venture umbrella concept",
+      "type": "project",
+      "confidence": "user-stated venture concept; operating status and products not established",
+      "tags": [
+        "Bhult",
+        "Bhult Labs",
+        "venture",
+        "startup",
+        "technology",
+        "software",
+        "AI"
+      ],
+      "summary": "An early venture concept intended as an umbrella for future technology projects.",
+      "content": "Bhult is the company and venture name Jashyawanta has chosen for future work. He has described building future technology projects under Bhult, with interests spanning AI, software, products and experiments. This is a venture concept and brand direction; do not imply a mature operating company, launched commercial products, revenue, customers, or a specific corporate structure unless later documented.",
+      "publicClaims": [
+        "Bhult is an early venture concept for future technology projects"
+      ],
+      "links": [
+        {
+          "title": "Projects",
+          "href": "/#projects"
+        }
+      ]
+    },
+    {
+      "id": "community-sports-leadership",
+      "title": "Community sports and league organization",
+      "type": "community",
+      "confidence": "user-shared community organizing facts; public relevance secondary to professional engineering portfolio",
+      "tags": [
+        "community leadership",
+        "football",
+        "league organization",
+        "team coordination",
+        "operations",
+        "captains review"
+      ],
+      "summary": "Organized a community football league and coordination across multiple teams as a volunteer/admin.",
+      "content": "Jashyawanta has been involved in organizing a community football group and league. Shared context included a community of roughly 157 players, regular games, and a seven-team winter league running from August to October 2026. He took on an admin/organizer role and introduced a Captain's Review System. This can be used as an example of volunteer coordination, scheduling, fairness and community operations if relevant. Do not overstate it as a formal professional role or claim quantified business impact.",
+      "publicClaims": [
+        "Volunteer experience coordinating a multi-team community football league"
+      ],
+      "links": [
+        {
+          "title": "Projects and interests",
+          "href": "/#projects"
+        }
+      ]
+    },
+    {
+      "id": "problem-solving-interests",
+      "title": "Problems I enjoy solving",
+      "type": "expertise",
+      "confidence": "user-approved homepage positioning",
+      "tags": [
+        "problem solving",
+        "ambiguity",
+        "team scaling",
+        "platform leverage",
+        "AI engineering",
+        "complexity",
+        "execution"
+      ],
+      "summary": "Ambiguity, scaling teams, platform leverage, and practical AI adoption.",
+      "content": "The problems Jashyawanta says he enjoys solving include: turning ambiguity into a plan; scaling teams without adding chaos; making platforms create leverage; and making AI useful in engineering. His approach is to clarify the problem, surface trade-offs, align people around deliberate action, clarify ownership, build shared capabilities, and keep quality and human accountability inside the system. These are his stated interests and approach; cite a specific verified case study before claiming a particular outcome.",
+      "publicClaims": [
+        "Enjoys solving problems involving ambiguity, team scaling, platform leverage and useful AI adoption"
+      ],
+      "links": [
+        {
+          "title": "What I love solving",
+          "href": "/#problems"
+        }
+      ]
+    },
+    {
+      "id": "public-contact",
+      "title": "Professional contact and conversation goals",
+      "type": "contact",
+      "confidence": "public website details",
+      "tags": [
+        "contact",
+        "email",
+        "GitHub",
+        "professional conversation",
+        "engineering leadership"
+      ],
+      "summary": "Public contact details and topics for professional conversations.",
+      "content": "The website lists hellohudi@gmail.com as the contact email and https://github.com/j-huidrom as the public GitHub profile. Topics Jashyawanta is interested in discussing include engineering leadership, platform engineering, AI-native engineering, building engineering teams in India, and practical technology projects. Ask Hudi may invite a visitor to use the website's contact section; do not invent a phone number or other contact channel.",
+      "publicClaims": [
+        "Public contact email: hellohudi@gmail.com",
+        "GitHub: https://github.com/j-huidrom"
+      ],
+      "links": [
+        {
+          "title": "Contact",
+          "href": "/#contact"
+        }
+      ]
+    }
+  ]
+}

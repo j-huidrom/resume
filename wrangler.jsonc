@@ -1,6 +1,14 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "huidrom-labs",
-  "compatibility_date": "2026-08-14",
-  "assets": { "directory": "./public" }
+  "main": "./src/worker.js",
+  "compatibility_date": "2026-10-16",
+  "vars": {
+    "OPENAI_MODEL": "gpt-5.5"
+  },
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  }
 }
