@@ -194,13 +194,21 @@ async function githubJson(url, token) {
       "X-GitHub-Api-Version": "2022-11-28"
     }
   });
+  const responseText = await response.text();
+  let payload = null;
+  try { payload = responseText ? JSON.parse(responseText) : null; } catch { payload = null; }
   if (!response.ok) {
     const error = new Error(`GitHub API request failed with HTTP ${response.status}`);
     error.status = response.status;
     error.path = new URL(url).pathname;
+    error.githubMessage = typeof payload?.message === "string" ? payload.message.slice(0, 240) : null;
+    error.acceptedPermissions = response.headers.get("x-accepted-github-permissions");
+    error.rateLimitRemaining = response.headers.get("x-ratelimit-remaining");
+    error.githubRequestId = response.headers.get("x-github-request-id");
     throw error;
   }
-  return response.json();
+  if (!payload) throw new Error("GitHub API returned invalid JSON");
+  return payload;
 }
 
 function dashboardCheckState(checks) {
@@ -212,18 +220,19 @@ function dashboardCheckState(checks) {
 
 async function buildBhultDashboard(token) {
   const api = "https://api.github.com/repos/j-huidrom/bhult-story-engine";
-  const [branches, pulls] = await Promise.all([
-    githubJson(`${api}/branches?per_page=100`, token),
+  const [developmentCommit, mainCommit, pulls] = await Promise.all([
+    githubJson(`${api}/commits/development`, token),
+    githubJson(`${api}/commits/main`, token),
     githubJson(`${api}/pulls?state=all&sort=updated&direction=desc&per_page=50`, token)
   ]);
 
-  const branchByName = new Map(branches.map(b => [b.name, b]));
+  const branchCommits = { development: developmentCommit, main: mainCommit };
   const health = await Promise.all(["development", "main"].map(async name => {
-    const branch = branchByName.get(name);
-    if (!branch) return { name, status: "Not found", sha: null, url: `https://github.com/j-huidrom/bhult-story-engine/tree/${name}` };
+    const commit = branchCommits[name];
+    if (!commit?.sha) return { name, status: "Not found", sha: null, url: `https://github.com/j-huidrom/bhult-story-engine/tree/${name}` };
     let status = "Not run";
     try {
-      const runs = await githubJson(`${api}/actions/runs?head_sha=${branch.commit.sha}&per_page=50`, token);
+      const runs = await githubJson(`${api}/actions/runs?head_sha=${commit.sha}&per_page=50`, token);
       const latestRuns = (runs.workflow_runs || []).slice(0, 20);
       if (!latestRuns.length) status = "Not run";
       else if (latestRuns.some(run => run.status !== "completed")) status = "Running";
@@ -233,14 +242,18 @@ async function buildBhultDashboard(token) {
       console.error("Bhult dashboard branch status lookup failed", {
         branch: name,
         status: error?.status || "network_or_parse_error",
-        path: error?.path || "unknown"
+        path: error?.path || "unknown",
+        githubMessage: error?.githubMessage || null,
+        acceptedPermissions: error?.acceptedPermissions || null,
+        rateLimitRemaining: error?.rateLimitRemaining || null,
+        githubRequestId: error?.githubRequestId || null
       });
       status = "Unavailable";
     }
     return {
       name,
       status,
-      sha: branch.commit.sha.slice(0, 7),
+      sha: commit.sha.slice(0, 7),
       url: `https://github.com/j-huidrom/bhult-story-engine/tree/${encodeURIComponent(name)}`
     };
   }));
@@ -289,7 +302,11 @@ async function handleBhultDashboard(request, env) {
   } catch (error) {
     console.error("Bhult dashboard metadata lookup failed", {
       status: error?.status || "network_or_parse_error",
-      path: error?.path || "unknown"
+      path: error?.path || "unknown",
+      githubMessage: error?.githubMessage || null,
+      acceptedPermissions: error?.acceptedPermissions || null,
+      rateLimitRemaining: error?.rateLimitRemaining || null,
+      githubRequestId: error?.githubRequestId || null
     });
     return json({ error: "DASHBOARD_DATA_UNAVAILABLE", message: "Bhult dashboard data is temporarily unavailable." }, 502);
   }
