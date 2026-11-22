@@ -194,7 +194,12 @@ async function githubJson(url, token) {
       "X-GitHub-Api-Version": "2022-11-28"
     }
   });
-  if (!response.ok) throw new Error(`GITHUB_API_${response.status}`);
+  if (!response.ok) {
+    const error = new Error(`GitHub API request failed with HTTP ${response.status}`);
+    error.status = response.status;
+    error.path = new URL(url).pathname;
+    throw error;
+  }
   return response.json();
 }
 
@@ -224,7 +229,14 @@ async function buildBhultDashboard(token) {
       else if (latestRuns.some(run => run.status !== "completed")) status = "Running";
       else if (latestRuns.some(run => run.conclusion && !["success", "neutral", "skipped"].includes(run.conclusion))) status = "Failed";
       else status = "Passed";
-    } catch { status = "Unavailable"; }
+    } catch (error) {
+      console.error("Bhult dashboard branch status lookup failed", {
+        branch: name,
+        status: error?.status || "network_or_parse_error",
+        path: error?.path || "unknown"
+      });
+      status = "Unavailable";
+    }
     return {
       name,
       status,
@@ -274,7 +286,11 @@ async function handleBhultDashboard(request, env) {
     const payload = await buildBhultDashboard(env.BHULT_GITHUB_TOKEN);
     bhultDashboardCache = { payload, expiresAt: now + 60_000 };
     return json(payload, 200, { "Cache-Control": "public, max-age=60" });
-  } catch {
+  } catch (error) {
+    console.error("Bhult dashboard metadata lookup failed", {
+      status: error?.status || "network_or_parse_error",
+      path: error?.path || "unknown"
+    });
     return json({ error: "DASHBOARD_DATA_UNAVAILABLE", message: "Bhult dashboard data is temporarily unavailable." }, 502);
   }
 }
