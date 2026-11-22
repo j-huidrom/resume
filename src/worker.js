@@ -218,8 +218,12 @@ async function buildBhultDashboard(token) {
     if (!branch) return { name, status: "Not found", sha: null, url: `https://github.com/j-huidrom/bhult-story-engine/tree/${name}` };
     let status = "Not run";
     try {
-      const checks = await githubJson(`${api}/commits/${branch.commit.sha}/check-runs?per_page=50`, token);
-      status = dashboardCheckState(checks.check_runs || []);
+      const runs = await githubJson(`${api}/actions/runs?head_sha=${branch.commit.sha}&per_page=50`, token);
+      const latestRuns = (runs.workflow_runs || []).slice(0, 20);
+      if (!latestRuns.length) status = "Not run";
+      else if (latestRuns.some(run => run.status !== "completed")) status = "Running";
+      else if (latestRuns.some(run => run.conclusion && !["success", "neutral", "skipped"].includes(run.conclusion))) status = "Failed";
+      else status = "Passed";
     } catch { status = "Unavailable"; }
     return {
       name,
