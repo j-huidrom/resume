@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Bhult Story Engine engineering dashboard — public project metadata, branch health, pull requests and releases.">
+  <title>Bhult Story Engine | Project Dashboard — Jashyawanta Huidrom</title>
+  <link rel="stylesheet" href="/projects/bhult-story-engine/dashboard.css?v=1">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">JH<span>.</span></a>
+    <nav><a href="/">Portfolio</a><a href="https://github.com/j-huidrom/bhult-story-engine" target="_blank" rel="noopener">Private repository ↗</a></nav>
+  </header>
+  <main class="shell">
+    <section class="hero">
+      <p class="eyebrow">PROJECT ENGINEERING · BHULT</p>
+      <h1>Bhult Story Engine<span class="period">.</span></h1>
+      <p class="intro">A source-faithful storytelling pipeline for transforming Manipuri folklore into culturally grounded animated films.</p>
+      <div class="hero-meta"><span class="live-dot"></span><span>Live project metadata</span><span class="sep">·</span><a href="https://github.com/j-huidrom/bhult-story-engine" target="_blank" rel="noopener">Repository access restricted ↗</a></div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><div><p class="eyebrow">01 / ENVIRONMENTS</p><h2>Branch health</h2></div><span id="updated" class="muted">Loading status…</span></div>
+      <div id="branches" class="branch-grid" aria-live="polite">
+        <article class="branch-card skeleton"></article><article class="branch-card skeleton"></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><div><p class="eyebrow">02 / IN FLIGHT</p><h2>Active features</h2></div><span id="open-count" class="count">—</span></div>
+      <div class="table-wrap"><table><thead><tr><th>Feature / pull request</th><th>Feature branch</th><th>State</th><th>Updated</th></tr></thead><tbody id="open-prs"><tr><td colspan="4" class="empty">Loading active work…</td></tr></tbody></table></div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><div><p class="eyebrow">03 / DELIVERY HISTORY</p><h2>Recent merges</h2></div></div>
+      <div class="table-wrap"><table><thead><tr><th>Change</th><th>Feature branch</th><th>Pull request</th><th>Merged</th></tr></thead><tbody id="merged-prs"><tr><td colspan="4" class="empty">Loading release history…</td></tr></tbody></table></div>
+    </section>
+
+    <footer><span>Bhult Story Engine · Engineering status</span><span>Only approved repository metadata is displayed. Source code and story content remain private.</span></footer>
+    <div id="error" class="error" hidden>Dashboard data is temporarily unavailable. Please refresh in a moment.</div>
+  </main>
+  <script src="/projects/bhult-story-engine/dashboard.js?v=1" defer></script>
+</body>
+</html>
