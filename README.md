@@ -80,3 +80,21 @@ Expected result: the script checks `/api/health`, sends a real message through t
 ## Next iteration
 
 Collect representative questions and failed retrievals, then curate source facts, prompts, response tone, and tests. Do not add more infrastructure until the MVP demonstrates a need.
+
+
+## Bhult Story Engine public dashboard
+
+The portfolio includes a public metadata dashboard at `/projects/bhult-story-engine/`. It displays only an allowlisted subset of repository metadata: development/main branch check status, open pull-request titles and branch links, and recent merged pull requests. It does not expose source files, story text, PR bodies, commit diffs, or repository contents.
+
+### One-time Cloudflare secret
+
+The dashboard API runs inside the existing `huidrom-labs` Worker. Configure a dedicated GitHub fine-grained personal access token as a **Worker secret** named `BHULT_GITHUB_TOKEN`:
+
+- Resource owner: `j-huidrom`
+- Repository access: only `bhult-story-engine`
+- Repository permissions: **Contents: Read-only**, **Pull requests: Read-only**, **Checks: Read-only**, and **Metadata: Read-only**.
+- No write permissions, no Actions secrets access, and no access to other repositories.
+
+In Cloudflare, open Workers & Pages → `huidrom-labs` → Settings → Variables and Secrets → add a secret named `BHULT_GITHUB_TOKEN`. Paste the token into the secret value field and save. Never put this token in website files, Git, browser JavaScript, or a public build variable.
+
+After the website deployment, verify `https://huidrom.com/api/bhult-dashboard` returns only dashboard metadata and that `https://huidrom.com/projects/bhult-story-engine/` loads the page. Without the secret, the endpoint intentionally returns a generic configuration error and no private repository data.

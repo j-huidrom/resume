@@ -183,9 +183,102 @@ async function handleChat(request, env) {
   });
 }
 
+
+let bhultDashboardCache = { expiresAt: 0, payload: null };
+
+async function githubJson(url, token) {
+  const response = await fetch(url, {
+    headers: {
+      "Authorization": `Bearer ${token}`,
+      "Accept": "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28"
+    }
+  });
+  if (!response.ok) throw new Error(`GITHUB_API_${response.status}`);
+  return response.json();
+}
+
+function dashboardCheckState(checks) {
+  if (!checks.length) return "Not run";
+  if (checks.some(c => c.status !== "completed")) return "Running";
+  if (checks.some(c => c.conclusion && !["success", "neutral", "skipped"].includes(c.conclusion))) return "Failed";
+  return "Passed";
+}
+
+async function buildBhultDashboard(token) {
+  const api = "https://api.github.com/repos/j-huidrom/bhult-story-engine";
+  const [branches, pulls] = await Promise.all([
+    githubJson(`${api}/branches?per_page=100`, token),
+    githubJson(`${api}/pulls?state=all&sort=updated&direction=desc&per_page=50`, token)
+  ]);
+
+  const branchByName = new Map(branches.map(b => [b.name, b]));
+  const health = await Promise.all(["development", "main"].map(async name => {
+    const branch = branchByName.get(name);
+    if (!branch) return { name, status: "Not found", sha: null, url: `https://github.com/j-huidrom/bhult-story-engine/tree/${name}` };
+    let status = "Not run";
+    try {
+      const checks = await githubJson(`${api}/commits/${branch.commit.sha}/check-runs?per_page=50`, token);
+      status = dashboardCheckState(checks.check_runs || []);
+    } catch { status = "Unavailable"; }
+    return {
+      name,
+      status,
+      sha: branch.commit.sha.slice(0, 7),
+      url: `https://github.com/j-huidrom/bhult-story-engine/tree/${encodeURIComponent(name)}`
+    };
+  }));
+
+  const open = pulls.filter(p => p.state === "open").slice(0, 20).map(p => ({
+    title: p.title,
+    number: p.number,
+    branch: p.head.ref,
+    branchUrl: `https://github.com/j-huidrom/bhult-story-engine/tree/${encodeURIComponent(p.head.ref)}`,
+    pullUrl: p.html_url,
+    updatedAt: p.updated_at,
+    status: p.draft ? "Draft" : "Open"
+  }));
+  const merged = pulls.filter(p => p.merged_at).slice(0, 12).map(p => ({
+    title: p.title,
+    number: p.number,
+    branch: p.head.ref,
+    branchUrl: `https://github.com/j-huidrom/bhult-story-engine/tree/${encodeURIComponent(p.head.ref)}`,
+    pullUrl: p.html_url,
+    mergedAt: p.merged_at
+  }));
+
+  return {
+    generatedAt: new Date().toISOString(),
+    repository: "j-huidrom/bhult-story-engine",
+    repositoryUrl: "https://github.com/j-huidrom/bhult-story-engine",
+    branches: health,
+    openPullRequests: open,
+    recentMerges: merged
+  };
+}
+
+async function handleBhultDashboard(request, env) {
+  if (request.method !== "GET") return json({ error: "METHOD_NOT_ALLOWED" }, 405, { Allow: "GET" });
+  const origin = request.headers.get("Origin");
+  if (origin && !allowedOrigin(request)) return json({ error: "ORIGIN_NOT_ALLOWED" }, 403);
+  if (!env.BHULT_GITHUB_TOKEN) return json({ error: "DASHBOARD_NOT_CONFIGURED", message: "Dashboard data is not configured yet." }, 503);
+  const now = Date.now();
+  if (bhultDashboardCache.payload && now < bhultDashboardCache.expiresAt) {
+    return json(bhultDashboardCache.payload, 200, { "Cache-Control": "public, max-age=60" });
+  }
+  try {
+    const payload = await buildBhultDashboard(env.BHULT_GITHUB_TOKEN);
+    bhultDashboardCache = { payload, expiresAt: now + 60_000 };
+    return json(payload, 200, { "Cache-Control": "public, max-age=60" });
+  } catch {
+    return json({ error: "DASHBOARD_DATA_UNAVAILABLE", message: "Bhult dashboard data is temporarily unavailable." }, 502);
+  }
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === '/api/bhult-dashboard') return handleBhultDashboard(request, env);
     if (url.pathname === '/api/health') {
       if (request.method !== 'GET') return json({ ok: false, error: 'METHOD_NOT_ALLOWED' }, 405, { Allow: 'GET' });
       let knowledgeAvailable = false;
