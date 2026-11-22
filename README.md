@@ -92,7 +92,7 @@ The dashboard API runs inside the existing `huidrom-labs` Worker. Configure a de
 
 - Resource owner: `j-huidrom`
 - Repository access: only `bhult-story-engine`
-- Repository permissions: **Contents: Read-only**, **Pull requests: Read-only**, **Checks: Read-only**, and **Metadata: Read-only**.
+- Repository permissions: **Contents: Read-only**, **Pull requests: Read-only**, **Actions: Read-only**, and **Metadata: Read-only**.
 - No write permissions, no Actions secrets access, and no access to other repositories.
 
 In Cloudflare, open Workers & Pages → `huidrom-labs` → Settings → Variables and Secrets → add a secret named `BHULT_GITHUB_TOKEN`. Paste the token into the secret value field and save. Never put this token in website files, Git, browser JavaScript, or a public build variable.
