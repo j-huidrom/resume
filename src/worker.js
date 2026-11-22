@@ -212,18 +212,19 @@ function dashboardCheckState(checks) {
 
 async function buildBhultDashboard(token) {
   const api = "https://api.github.com/repos/j-huidrom/bhult-story-engine";
-  const [branches, pulls] = await Promise.all([
-    githubJson(`${api}/branches?per_page=100`, token),
+  const [developmentCommit, mainCommit, pulls] = await Promise.all([
+    githubJson(`${api}/commits/development`, token),
+    githubJson(`${api}/commits/main`, token),
     githubJson(`${api}/pulls?state=all&sort=updated&direction=desc&per_page=50`, token)
   ]);
 
-  const branchByName = new Map(branches.map(b => [b.name, b]));
+  const branchCommits = { development: developmentCommit, main: mainCommit };
   const health = await Promise.all(["development", "main"].map(async name => {
-    const branch = branchByName.get(name);
-    if (!branch) return { name, status: "Not found", sha: null, url: `https://github.com/j-huidrom/bhult-story-engine/tree/${name}` };
+    const commit = branchCommits[name];
+    if (!commit?.sha) return { name, status: "Not found", sha: null, url: `https://github.com/j-huidrom/bhult-story-engine/tree/${name}` };
     let status = "Not run";
     try {
-      const runs = await githubJson(`${api}/actions/runs?head_sha=${branch.commit.sha}&per_page=50`, token);
+      const runs = await githubJson(`${api}/actions/runs?head_sha=${commit.sha}&per_page=50`, token);
       const latestRuns = (runs.workflow_runs || []).slice(0, 20);
       if (!latestRuns.length) status = "Not run";
       else if (latestRuns.some(run => run.status !== "completed")) status = "Running";
@@ -240,7 +241,7 @@ async function buildBhultDashboard(token) {
     return {
       name,
       status,
-      sha: branch.commit.sha.slice(0, 7),
+      sha: commit.sha.slice(0, 7),
       url: `https://github.com/j-huidrom/bhult-story-engine/tree/${encodeURIComponent(name)}`
     };
   }));
