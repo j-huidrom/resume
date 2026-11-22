@@ -194,13 +194,21 @@ async function githubJson(url, token) {
       "X-GitHub-Api-Version": "2022-11-28"
     }
   });
+  const responseText = await response.text();
+  let payload = null;
+  try { payload = responseText ? JSON.parse(responseText) : null; } catch { payload = null; }
   if (!response.ok) {
     const error = new Error(`GitHub API request failed with HTTP ${response.status}`);
     error.status = response.status;
     error.path = new URL(url).pathname;
+    error.githubMessage = typeof payload?.message === "string" ? payload.message.slice(0, 240) : null;
+    error.acceptedPermissions = response.headers.get("x-accepted-github-permissions");
+    error.rateLimitRemaining = response.headers.get("x-ratelimit-remaining");
+    error.githubRequestId = response.headers.get("x-github-request-id");
     throw error;
   }
-  return response.json();
+  if (!payload) throw new Error("GitHub API returned invalid JSON");
+  return payload;
 }
 
 function dashboardCheckState(checks) {
@@ -234,7 +242,11 @@ async function buildBhultDashboard(token) {
       console.error("Bhult dashboard branch status lookup failed", {
         branch: name,
         status: error?.status || "network_or_parse_error",
-        path: error?.path || "unknown"
+        path: error?.path || "unknown",
+        githubMessage: error?.githubMessage || null,
+        acceptedPermissions: error?.acceptedPermissions || null,
+        rateLimitRemaining: error?.rateLimitRemaining || null,
+        githubRequestId: error?.githubRequestId || null
       });
       status = "Unavailable";
     }
@@ -290,7 +302,11 @@ async function handleBhultDashboard(request, env) {
   } catch (error) {
     console.error("Bhult dashboard metadata lookup failed", {
       status: error?.status || "network_or_parse_error",
-      path: error?.path || "unknown"
+      path: error?.path || "unknown",
+      githubMessage: error?.githubMessage || null,
+      acceptedPermissions: error?.acceptedPermissions || null,
+      rateLimitRemaining: error?.rateLimitRemaining || null,
+      githubRequestId: error?.githubRequestId || null
     });
     return json({ error: "DASHBOARD_DATA_UNAVAILABLE", message: "Bhult dashboard data is temporarily unavailable." }, 502);
   }
